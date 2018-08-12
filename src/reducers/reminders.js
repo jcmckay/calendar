@@ -23,8 +23,8 @@ const reminders = (state = {}, action) => {
         newState[year][month][day] = [];
       }
 
-
-      newState[year][month][day].push({text: reminder.text, color: reminder.color});
+      const newReminder = {text: reminder.text, color: reminder.color, datetime: reminder.date };
+      newState[year][month][day].push(newReminder);
 
       return {...newState};
     default:

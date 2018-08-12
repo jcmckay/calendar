@@ -6,7 +6,8 @@ const reminders = {
     7: {
       8: [{
         text: 'Something to Remind me about',
-        color: 'green'
+        color: 'green',
+        dateTime: '2018-07-8T21:50:49.681Z'
       }]
     }
   }

@@ -20,7 +20,7 @@ class ReminderForm extends Component {
 
   handleReminderTextChange = (e) => {
     const text = e.target.value;
-    this.setState({ reminderText: text });
+    this.setState({ reminderText: text.substring(0,30) });
   }
 
   handleDateChange = (date) => {
@@ -47,7 +47,7 @@ class ReminderForm extends Component {
             onChange={this.handleDateChange}
           />
           <label>Reminder Text:</label>
-          <textarea rows="6" value={this.state.reminderText} onChange={this.handleReminderTextChange} />
+          <textarea rows="2" maxLength="30" value={this.state.reminderText} onChange={this.handleReminderTextChange} />
           <label>Color:</label>
           <input type="text" disabled="disabled" value={this.state.color} />
           <SketchPicker color={ this.state.color } onChangeComplete={this.handleColorChange} />

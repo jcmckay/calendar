@@ -22,7 +22,9 @@ const Days = () => {
 
   return (
     <div className="days">
-      {days.map((day, idx) => <div key={idx} className="day">{day}</div>)}
+      {days.map((day, idx) => {
+        const disabled = day === 0 ? 'disabled' : '';
+        return <div key={idx} className={`day ${disabled}`}>{day !== 0 ? day : ''}</div>})}
     </div>
   )
 

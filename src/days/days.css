@@ -9,3 +9,7 @@
   border-bottom: solid;
   border-right: solid;
 }
+
+.day.disabled {
+  background-color: gray;
+}

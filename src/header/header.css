@@ -1,0 +1,11 @@
+.month-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 2rem;
+  font-size: 3rem;
+}
+
+.month-nav a {
+  color: blue;
+  text-decoration: none;
+}

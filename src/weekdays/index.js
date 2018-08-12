@@ -7,7 +7,7 @@ const Weekdays = () => {
 
   return (
     <header className="weekdays">
-      { weekdays.map((weekday) => <div className="weekday">{weekday}</div>) }
+      { weekdays.map((weekday, idx) => <div key={idx} className="weekday">{weekday}</div>) }
     </header>
   )
 }

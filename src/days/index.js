@@ -1,14 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
+import Day from './day';
 import './days.css';
 
-const Days = ({ date }) => {
+const Days = ({ date, reminders }) => {
 
   const currentDate = date,
         year = currentDate.year(),
         month = currentDate.month(),
         daysInTheMonth = currentDate.daysInMonth();
+
+  const monthsReminders = reminders[year][month];
 
   const startDayOfWeek = moment(moment([year, month])).day();
   let days = Array(startDayOfWeek).fill(0);
@@ -24,15 +27,16 @@ const Days = ({ date }) => {
   return (
     <div className="days">
       {days.map((day, idx) => {
-        const disabled = day === 0 ? 'disabled' : '';
-        return <div key={idx} className={`day ${disabled}`}>{day !== 0 ? day : ''}</div>})}
+        return <Day key={idx} dayNumber={day} reminders={monthsReminders[day]} />
+      })}
     </div>
   )
 
 }
 
 const mapStateToProps = state => ({
-  date: state.selectedDate
+  date: state.selectedDate,
+  reminders: state.reminders
 });
 
 export default connect(mapStateToProps)(Days);

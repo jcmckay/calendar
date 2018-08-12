@@ -15,7 +15,7 @@ const Header = ( { date, dispatch } ) => {
           <a href="#" onClick={() => {dispatch({type: 'SET_DATE', value: prevMonth})}}>{prevMonth.format('MMM')}</a>
         </div>
         <div className="current-month">
-          {moment(date).format('MMMM')}
+          { `${moment(date).format('MMMM')} ${moment(date).year()}` }
         </div>
         <div className="next-month">
           <a href="#" onClick={() => {dispatch({type: 'SET_DATE', value:  nextMonth})}}>{nextMonth.format('MMM')}</a>

@@ -1,0 +1,17 @@
+.weekdays {
+  display: flex;
+  border: solid 1px #fff;
+}
+
+.weekday {
+  background-color: blue;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-right: solid 1px #fff;
+  width: 14%;
+  text-align: center;
+}
+
+.weekday:last-child {
+  border-right:none;
+}

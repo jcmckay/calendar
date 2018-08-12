@@ -6,7 +6,7 @@ const reminders = {
     7: {
       8: [{
         text: 'Something to Remind me about',
-        color: '#23343c'
+        color: 'green'
       }]
     }
   }

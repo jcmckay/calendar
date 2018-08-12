@@ -13,3 +13,7 @@
 .day.disabled {
   background-color: gray;
 }
+
+.reminder {
+  padding: .5rem;
+}

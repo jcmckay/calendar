@@ -11,8 +11,6 @@ const Days = ({ date, reminders }) => {
         month = currentDate.month(),
         daysInTheMonth = currentDate.daysInMonth();
 
-  const monthsReminders = reminders[year][month];
-
   const startDayOfWeek = moment(moment([year, month])).day();
   let days = Array(startDayOfWeek).fill(0);
   for(var i = 1; i <= daysInTheMonth; i++) {
@@ -23,6 +21,8 @@ const Days = ({ date, reminders }) => {
   const endFill = Array(6-endDayofWeek).fill(0);
 
   days = days.concat(endFill);
+
+  const monthsReminders = reminders[year] ? reminders[year][month] : null;
 
   return (
     <div className="days">

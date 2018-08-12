@@ -1,28 +1,15 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.toggleWrapper {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
 }
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.toggleAddReminder {
+  border-radius: 6px;
+  background-color: green;
+  font-size: 4rem;
+  color: #fff;
+  border: none;
+  line-height: 4rem;
+  padding: 7px;
 }

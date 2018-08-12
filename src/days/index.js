@@ -27,7 +27,7 @@ const Days = ({ date, reminders }) => {
   return (
     <div className="days">
       {days.map((day, idx) => {
-        return <Day key={idx} dayNumber={day} reminders={monthsReminders[day]} />
+        return <Day key={idx} dayNumber={day} reminders={monthsReminders ? monthsReminders[day] : null} />
       })}
     </div>
   )

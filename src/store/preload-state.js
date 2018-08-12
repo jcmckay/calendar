@@ -15,7 +15,12 @@ const reminders = {
   }
 }
 
+const reminder = null;
+const showReminderForm = false;
+
 export const PreloadedState = {
   selectedDate: selectedDate,
-  reminders: reminders
+  reminders: reminders,
+  reminder: reminder,
+  showReminderForm: showReminderForm
 };

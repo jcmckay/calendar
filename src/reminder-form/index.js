@@ -39,7 +39,7 @@ class ReminderForm extends Component {
                 e.preventDefault();
                 const reminder = { text: this.state.reminderText, color: this.state.color, date: this.state.date };
                 this.props.dispatch({type: 'CREATE_REMINDER', reminder: reminder });
-                this.props.toggleForm();
+                this.props.dispatch(this.props.dispatch({type: 'HIDE_REMINDER_FORM', value: false }));
         }}>
           <h2>Create a Reminder</h2>
           <DatePicker

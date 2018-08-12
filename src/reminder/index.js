@@ -6,7 +6,8 @@ const Reminder = ({ reminder, dispatch }) => {
     <div
       key={reminder.id}
       className="reminder"
-      style={ {backgroundColor: reminder.color} }>
+      style={ {backgroundColor: reminder.color} }
+      onClick={() => { dispatch({type: 'SET_REMINDER_FOCUS', reminder: reminder })}}>
       <span>{reminder.text}</span>
       <button
         type="button"

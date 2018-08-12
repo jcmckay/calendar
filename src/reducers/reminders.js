@@ -13,6 +13,15 @@ const deleteReminders = (state, reminder) => {
   return {...newState};
 }
 
+const updateReminders = (state, reminder) => {
+  let newState = null,
+      originalDate = reminder.originalDate;
+
+  newState = deleteReminders(state, {...reminder, date: originalDate} );
+
+  return createReminder(newState, reminder);
+}
+
 const createReminder = (state, reminder) => {
   const date = moment(reminder.date),
         year = date.year(),
@@ -43,6 +52,8 @@ const reminders = (state = {}, action) => {
   switch(action.type) {
     case 'CREATE_REMINDER':
       return createReminder(state, action.reminder);
+    case 'UPDATE_REMINDER':
+      return updateReminders(state, action.reminder);
     case 'DELETE_REMINDER':
       return deleteReminders(state, action.reminder);
     default:

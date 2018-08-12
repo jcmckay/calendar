@@ -7,11 +7,17 @@ const Reminder = ({ reminder, dispatch }) => {
       key={reminder.id}
       className="reminder"
       style={ {backgroundColor: reminder.color} }
-      onClick={() => { dispatch({type: 'SET_REMINDER_FOCUS', reminder: reminder })}}>
-      <span>{reminder.text}</span>
+      >
+      <span onClick={() => {
+        dispatch({type: 'SET_REMINDER_FOCUS', reminder: reminder });
+        dispatch({type: 'SHOW_REMINDER_FORM' });
+      }}>{reminder.text}</span>
       <button
         type="button"
-        onClick={() => dispatch({type: 'DELETE_REMINDER', reminder: { id: reminder.id, date: reminder.date }})}>X</button>
+        onClick={() => {
+          dispatch({ type: 'DELETE_REMINDER', reminder: { id: reminder.id, date: reminder.date }})
+          dispatch({ type: 'CLEAR_REMINDER_FOCUS' })
+        }}>X</button>
     </div>
   )
 }

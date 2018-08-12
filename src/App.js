@@ -12,7 +12,12 @@ class App extends Component {
         <Calendar />
         { this.props.showReminderForm ? <ReminderForm /> : null }
         <div className="toggleWrapper">
-          <button className="toggleAddReminder" onClick={() => {this.props.dispatch({type: 'SHOW_REMINDER_FORM' })}}>+</button>
+          <button
+            className="toggleAddReminder"
+            onClick={() => {
+              this.props.dispatch({type: 'SHOW_REMINDER_FORM' });
+              this.props.dispatch({ type: 'CLEAR_REMINDER_FOCUS' });
+            }}>+</button>
         </div>
       </div>
     );

@@ -11,10 +11,14 @@ class ReminderForm extends Component {
   constructor(props) {
     super(props);
 
+    const reminder = this.props.reminder;
+
     this.state = {
-      reminderText: '',
-      color: '#0c02d0',
-      date: moment()
+      id: reminder ? reminder.id : null,
+      reminderText: reminder ? reminder.text : '',
+      color: reminder ? reminder.color : '#0c02d0',
+      date: reminder ? moment(reminder.date) : moment(),
+      originalDate: reminder ? moment(reminder.date) : null
     };
   }
 
@@ -37,9 +41,17 @@ class ReminderForm extends Component {
         <form className="reminder-form"
               onSubmit={(e) => {
                 e.preventDefault();
-                const reminder = { text: this.state.reminderText, color: this.state.color, date: this.state.date };
-                this.props.dispatch({type: 'CREATE_REMINDER', reminder: reminder });
-                this.props.dispatch(this.props.dispatch({type: 'HIDE_REMINDER_FORM', value: false }));
+                const reminder = {
+                        id: this.state.id,
+                        text: this.state.reminderText,
+                        color: this.state.color,
+                        date: this.state.date,
+                        originalDate: this.state.originalDate
+                      },
+                      type = this.props.reminder ? 'UPDATE_REMINDER' : 'CREATE_REMINDER';
+
+                this.props.dispatch({type: type, reminder: reminder });
+                this.props.dispatch(this.props.dispatch({type: 'HIDE_REMINDER_FORM' }));
         }}>
           <h2>Create a Reminder</h2>
           <DatePicker
@@ -60,4 +72,8 @@ class ReminderForm extends Component {
   }
 }
 
-export default connect()(ReminderForm);
+const mapStateToProps = state => ({
+  reminder: state.reminder
+});
+
+export default connect(mapStateToProps)(ReminderForm);

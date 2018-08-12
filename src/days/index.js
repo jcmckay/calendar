@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import moment from 'moment';
 import './days.css';
 
-const Days = () => {
+const Days = ({ date }) => {
 
-  const currentDate = moment(),
+  const currentDate = date,
         year = currentDate.year(),
         month = currentDate.month(),
         daysInTheMonth = currentDate.daysInMonth();
@@ -30,4 +31,8 @@ const Days = () => {
 
 }
 
-export default Days;
+const mapStateToProps = state => ({
+  date: state.selectedDate
+});
+
+export default connect(mapStateToProps)(Days);

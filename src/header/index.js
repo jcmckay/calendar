@@ -3,18 +3,22 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import './header.css';
 
-const Header = ( { date } ) => {
+const Header = ( { date, dispatch } ) => {
+
+  const prevMonth = moment(date).subtract(1, "month"),
+        nextMonth = moment(date).add(1, "month");
+
   return (
     <header>
       <nav className="month-nav">
         <div className="previous-month">
-          <a href="#">{moment(date).subtract(1, "month").format('MMM')}</a>
+          <a href="#" onClick={() => {dispatch({type: 'SET_DATE', value: prevMonth})}}>{prevMonth.format('MMM')}</a>
         </div>
         <div className="current-month">
           {moment(date).format('MMMM')}
         </div>
         <div className="next-month">
-          <a href="#">{moment(date).add(1, "month").format('MMM')}</a>
+          <a href="#" onClick={() => {dispatch({type: 'SET_DATE', value:  nextMonth})}}>{nextMonth.format('MMM')}</a>
         </div>
       </nav>
     </header>

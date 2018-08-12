@@ -7,7 +7,7 @@ const Day = ({ dayNumber, reminders }) => {
   return (
     <div className={`day ${disabled}`}>
       <span>{dayNumber !== 0 ? dayNumber : ''}</span>
-      { reminders ? reminders.map((r) => <Reminder reminder={r} />) : null}
+      { reminders ? reminders.map((r) => <Reminder key={r.id} reminder={r} />) : null}
     </div>
   )
 }

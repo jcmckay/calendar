@@ -9,7 +9,7 @@ const reminders = {
         id: uuid(),
         text: 'Something to Remind me about',
         color: 'green',
-        dateTime: '2018-07-8T21:50:49.681Z'
+        date: moment('2018-08-08T21:50:49.681Z')
       }]
     }
   }
